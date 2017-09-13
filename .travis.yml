@@ -18,8 +18,10 @@ branches:
     - master
     - travis-testing
 
+install:
+  git clone https://github.com/Tim15/vault $GOPATH/src/github.com/hashicorp/vault
+
 script:
-  - ln -s $GOPATH/src/github.com/hashicorp/vault $GOPATH/src/github.com/Tim15/vault
   - make bootstrap
   - travis_wait 75 make test
   - travis_wait 75 make testrace
