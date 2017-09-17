@@ -1,13 +1,14 @@
+version: '2'
 jobs:
   build:
     docker:
       image: golang:1.9
       workspace: /go/src/github.com/hashicorp/vault
-      steps:
-        checkout
-        setup_remote_docker
-        run: git clone https://github.com/Tim15/vault $GOPATH/src/github.com/hashicorp/vault
-        run: cd $GOPATH/src/github.com/hashicorp/vault
-        run: make bootstrap
-        run: make test
-        run: make testrace
+    steps:
+      checkout
+      setup_remote_docker
+      run: git clone https://github.com/Tim15/vault $GOPATH/src/github.com/hashicorp/vault
+      run: cd $GOPATH/src/github.com/hashicorp/vault
+      run: make bootstrap
+      run: make test
+      run: make testrace
