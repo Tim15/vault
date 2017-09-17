@@ -9,6 +9,14 @@ jobs:
       - setup_remote_docker
       # - run: git clone https://github.com/Tim15/vault $GOPATH/src/github.com/hashicorp/vault
       # - run: cd $GOPATH/src/github.com/hashicorp/vault
+      - run: docker ps
+      - run: docker run -d -p 80 --name web nginx
+      - run: docker ps
+      - run: docker stop web
+      - run: docker run -d -p 80:80 --name web nginx
+      - run: docker ps
+      - run: docker stop web
+      - run: docker ps
       - run: make bootstrap
       - run: make test
       - run: make testrace
