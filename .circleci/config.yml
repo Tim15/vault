@@ -7,8 +7,8 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: git clone https://github.com/Tim15/vault $GOPATH/src/github.com/hashicorp/vault
-      - run: cd $GOPATH/src/github.com/hashicorp/vault
+      # - run: git clone https://github.com/Tim15/vault $GOPATH/src/github.com/hashicorp/vault
+      # - run: cd $GOPATH/src/github.com/hashicorp/vault
       - run: make bootstrap
       - run: make test
       - run: make testrace
