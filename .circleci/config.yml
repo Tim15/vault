@@ -12,6 +12,7 @@ jobs:
       - run: docker ps
       - run: docker run -d -p 80 --name web nginx
       - run: docker ps
+      - run: curl 127.0.0.1
       - run: docker stop web
       - run: docker run -d -p 80:80 --name web nginx
       - run: docker ps
