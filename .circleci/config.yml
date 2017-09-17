@@ -1,0 +1,11 @@
+jobs:
+  build:
+    docker:
+      image: golang:1.9
+      workspace: /go/src/github.com/hashicorp/vault
+      steps:
+        - git clone https://github.com/Tim15/vault $GOPATH/src/github.com/hashicorp/vault
+        - cd $GOPATH/src/github.com/hashicorp/vault
+        - make bootstrap
+        - make test
+        - make testrace
